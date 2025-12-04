@@ -1,11 +1,11 @@
 import React from 'react';
-import { useData } from '../contexts/DataContext';
+import { SERVICES } from '../constants';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import * as LucideIcons from 'lucide-react';
 
 const Services: React.FC = () => {
-  const { services } = useData();
+  const services = SERVICES;
 
   const renderIcon = (iconName: string) => {
     const Icon = (LucideIcons as any)[iconName] || LucideIcons.HelpCircle;

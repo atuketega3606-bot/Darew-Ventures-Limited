@@ -9,19 +9,7 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 
 // Contexts
-import { AuthProvider } from './contexts/AuthContext';
-import { DataProvider } from './contexts/DataContext';
 import { ThemeProvider } from './contexts/ThemeContext';
-
-// Admin Pages
-import Login from './pages/admin/Login';
-import AdminLayout from './layouts/AdminLayout';
-import Dashboard from './pages/admin/Dashboard';
-import ServicesAdmin from './pages/admin/ServicesAdmin';
-import ProjectsAdmin from './pages/admin/ProjectsAdmin';
-import InquiriesAdmin from './pages/admin/InquiriesAdmin';
-import UsersAdmin from './pages/admin/UsersAdmin';
-import Database from './pages/admin/Database';
 
 // Scroll to top wrapper
 const ScrollToTop: React.FC = () => {
@@ -59,30 +47,14 @@ const PublicLayout: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-    <AuthProvider>
-      <DataProvider>
-        <ThemeProvider>
-          <HashRouter>
-            <ScrollToTop />
-            <Routes>
-              {/* Admin Routes */}
-              <Route path="/admin/login" element={<Login />} />
-              <Route path="/admin" element={<AdminLayout />}>
-                <Route path="dashboard" element={<Dashboard />} />
-                <Route path="services" element={<ServicesAdmin />} />
-                <Route path="projects" element={<ProjectsAdmin />} />
-                <Route path="inquiries" element={<InquiriesAdmin />} />
-                <Route path="users" element={<UsersAdmin />} />
-                <Route path="database" element={<Database />} />
-              </Route>
-
-              {/* Public Routes */}
-              <Route path="/*" element={<PublicLayout />} />
-            </Routes>
-          </HashRouter>
-        </ThemeProvider>
-      </DataProvider>
-    </AuthProvider>
+    <ThemeProvider>
+      <HashRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/*" element={<PublicLayout />} />
+        </Routes>
+      </HashRouter>
+    </ThemeProvider>
   );
 };
 

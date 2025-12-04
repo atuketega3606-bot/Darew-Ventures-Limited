@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useData } from '../contexts/DataContext';
+import { PROJECTS } from '../constants';
 import { MapPin } from 'lucide-react';
 
 const Projects: React.FC = () => {
-  const { projects } = useData();
+  const projects = PROJECTS;
   const [filter, setFilter] = useState<string>('All');
   const filters = ['All', 'Upstream', 'Downstream', 'Infrastructure'];
 

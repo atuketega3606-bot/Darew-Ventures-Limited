@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, ChevronDown } from 'lucide-react';
-import { useData } from '../contexts/DataContext';
-import { WHY_CHOOSE_US, COMPANY_STATS } from '../constants';
+import { WHY_CHOOSE_US, COMPANY_STATS, SERVICES } from '../constants';
 import * as LucideIcons from 'lucide-react';
 
 const ParticleBackground: React.FC = () => {
@@ -107,7 +106,9 @@ const ParticleBackground: React.FC = () => {
 };
 
 const Home: React.FC = () => {
-  const { services, stats } = useData();
+  // Use static data directly
+  const services = SERVICES;
+  const stats = COMPANY_STATS;
   
   // Helper to render icon dynamically
   const renderIcon = (iconName: string) => {

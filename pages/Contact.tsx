@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, MessageSquare } from 'lucide-react';
-import { useData } from '../contexts/DataContext';
 
 const Contact: React.FC = () => {
-  const { addInquiry } = useData();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,7 +16,7 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    addInquiry(formData);
+    // Simulate submission
     setSuccess(true);
     setFormData({ name: '', email: '', phone: '', message: '' });
     
